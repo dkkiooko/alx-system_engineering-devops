@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # another indefinate program
-trap 'echo "I an invincible!!!"' SIGTERM
+trap 'echo "I am invincible!!!"' SIGTERM
 while true
 do
 	echo "To infinity and beyond"
