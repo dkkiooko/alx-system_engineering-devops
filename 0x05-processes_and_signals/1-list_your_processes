@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# list currently running processed for all users
+# display in user-oriented format and with process heirachy
+ps -auxf
