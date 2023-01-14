@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# installs ngiz on my web-01
+
+sudo apt update
+sudo apt install -y nginx-full
+echo "Hello World!" | sudo tee /var/www/html/index.html
+sudo service nginx restart
