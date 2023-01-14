@@ -2,8 +2,8 @@
 # redirects with a 301 error
 
 
-sudo apt update
-sudo apt install -y nginx-full
+sudo apt-get update
+sudo apt-get install -y nginx-full
 echo "Hello World!" | sudo tee /var/www/html/index.html
 sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com\/watch?v=xzOIj4_QBE0 permanent;/" /etc/nginx/sites-available/default
 sudo service nginx start
