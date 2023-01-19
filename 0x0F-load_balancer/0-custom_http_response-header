@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# install Nginx with configuration:
+
+#   listens on port 80
+#   return bage with "Hello World!" when queried with curl
+#   configures /redirect_me as "301 Moved Permanently"
+#   include custom 404 page as "Ceci n'est pas une page"
+#   custom HTTP header X-Served-By
+#   value HTTP header hostname of server (web-01 or web-02)
+
+WHERE="/etc/nginx/sites-available/default"
+ADD="\\\tlocation \/redirect_me {\n\t\treturn 301 https://www.coolthings.com;\n\t}\n"
+E404="\\\n\terror_page 404 /custom_404.html;\n\tlocation = /custom_404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}\n"
+HEADER="\\\n\tadd_header X-Served-By \$hostname;\n"
+
+sudo apt-get -y update
+sudo apt-get install -y nginx
+sudo echo "Hello World!" | sudo tee /usr/share/nginx/html/index.html
+sudo sed -i "30i $ADD" $WHERE
+sudo echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html
+sudo sed -i "48i $E404" $WHERE
+sudo sed -i "29i $HEADER" $WHERE
+sudo service nginx restart
+
