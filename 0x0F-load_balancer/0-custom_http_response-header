@@ -21,4 +21,3 @@ sudo echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.
 sudo sed -i "48i $E404" $WHERE
 sudo sed -i "29i $HEADER" $WHERE
 sudo service nginx restart
-
