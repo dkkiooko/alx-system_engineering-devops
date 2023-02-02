@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 # script that creates a mysql db backup
-sudo mysqldump -u root db > db.sql
-tar -cvxf "$(date +%m-%d-%-Y).tar.gz" ./db.sql
+sudo mysqldump -u root tyrell_corp > backup.sql
+day=$(date +"%d")
+month=$(date +"%m")
+year=$(date +"%Y")
+file_name="$day-$month-$year.tar.gz"
+tar -czvf "$file_name" backup.sql
 
