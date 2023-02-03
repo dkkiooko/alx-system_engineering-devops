@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# run nginx as nginx user listening on port 8080
+
+# file were going to configure
+file='/etc/nginx/sites-available/default'
+
+# kill apache2 server so that we update nginx
+pkill -f apache2
+
+# grant rwx to user/owner and none for members and other
+chmod 700 /etc/nginx/nginx.conf
+
+# update listening ports
+sed -i 's/80/8080/g' $file
+
+#restart nginx as nginx
+sudo -u nginx service nginx restart
+
