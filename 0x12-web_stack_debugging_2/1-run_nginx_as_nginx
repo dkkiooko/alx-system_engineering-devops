@@ -11,10 +11,10 @@ chmod 644 /etc/nginx/nginx.conf
 chown nginx:nginx /etc/nginx/nginx.conf
 
 # update user to nginx
-sed -i '1i user www www;' /etc/nginx/nginx.conf
+sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
 
 # update listening ports
-sed -i 's/80 default_server/8080 default_server' $file
+sed -i "s/80 default_server/8080 default_server" $file
 
 # kill apache2 server so that we update nginx
 pkill -f apache2
