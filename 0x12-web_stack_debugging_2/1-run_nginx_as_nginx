@@ -4,8 +4,8 @@
 # file we're going to configure
 file='/etc/nginx/sites-available/default'
 
-# grant rwx to user 
-chmod 700 /etc/nginx/nginx.conf
+# grant rw for user and r for rest
+chmod 644 /etc/nginx/nginx.conf
 
 # make nginx owner
 chown nginx:nginx /etc/nginx/nginx.conf
