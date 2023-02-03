@@ -7,11 +7,11 @@ file='/etc/nginx/sites-available/default'
 # kill apache2 server so that we update nginx
 pkill -f apache2
 
-# grant rwx to user/owner and none for members and other
+# grant rwx to user 
 chmod 700 /etc/nginx/nginx.conf
 
 # update listening ports
-sed -i 's/80/8080/g' $file
+sed -i 's/80 default_server/8080 default_server' $file
 
 #restart nginx as nginx
 sudo -u nginx service nginx restart
