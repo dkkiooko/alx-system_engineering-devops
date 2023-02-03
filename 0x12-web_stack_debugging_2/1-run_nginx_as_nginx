@@ -1,17 +1,8 @@
 #!/usr/bin/env bash
 # run nginx as nginx user listening on port 8080
-
-# file we're going to configure
-file='/etc/nginx/sites-available/default'
-
-# update user to nginx
-sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
-# update listening ports
-sed -i "s/80 default_server/8080 default_server" $file
-# grant rw for user and r for rest
-chmod 644 /etc/nginx/nginx.conf
-# kill apache2 server so that we update nginx
 pkill apache2
-#restart nginx as nginx
-sudo -u nginx service nginx start
+sed -i "s/#user www-data/user nginx;/" /etc/nginx/nginx.conf
+sed -i "s/80 default_server/8080 default_server" /etc/nginx/sites-available/default
+chmod 644 /etc/nginx/nginx.conf
+sudo -u nginx service nginx restart
 
