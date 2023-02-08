@@ -9,6 +9,7 @@ url = 'https://jsonplaceholder.typicode.com/'
 
 
 def main():
+    """ main function that prints output """
     r = requests.get('{}users/{}'.format(url, user_id))
     name = r.json()['name']
     r2 = requests.get('{}todos?userId={}'.format(url, user_id)).json()
