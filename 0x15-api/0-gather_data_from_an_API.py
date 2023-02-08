@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""gathers data from an API"""
+""" gathers data from an API
+"""
 import requests
 from sys import argv
 
@@ -9,7 +10,10 @@ url = 'https://jsonplaceholder.typicode.com/'
 
 
 def main():
-    """ main function that prints output """
+    """ main function that prints output
+    returns nothing
+    """
+
     r = requests.get('{}users/{}'.format(url, user_id))
     name = r.json()['name']
     r2 = requests.get('{}todos?userId={}'.format(url, user_id)).json()
