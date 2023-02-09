@@ -1,10 +1,8 @@
 #!/usr/bin/python3
-""" gathers data from an API
-and exports to JSON
-"""
 """Exports to-do list information of all employees to JSON format."""
 import json
 import requests
+
 
 if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com/"

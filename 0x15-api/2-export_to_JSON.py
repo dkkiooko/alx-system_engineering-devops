@@ -27,11 +27,10 @@ def main():
         temp['completed'] = i['completed']
         temp['username'] = name
         all_dicts.append(temp)
-    dictionary = {str(user_id) : all_dicts}
+    dictionary = {str(user_id): all_dicts}
     with open(f'{user_id}.json', 'w') as file:
         dw = json.dump(dictionary, file)
 
 
-if __name__ == '__main__':
-    """ run the main function """
+if __name__ == "__main__":
     main()

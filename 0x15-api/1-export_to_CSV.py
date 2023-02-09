@@ -22,9 +22,8 @@ def main():
     all_tasks = [i for i in r2[:]]
     with open(f'{user_id}.csv', 'w') as file:
         dw = csv.writer(file, delimiter=',')
-        for element in all_tasks:
-            dw.writerow([user_id] + [name] + [element['completed']] + [element['title']])
-
+        for e in all_tasks:
+            dw.writerow([user_id] + [name] + [e['completed']] + [e['title']])
 
 
 if __name__ == '__main__':
