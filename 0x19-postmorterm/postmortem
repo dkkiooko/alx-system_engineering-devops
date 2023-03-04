@@ -1,0 +1,18 @@
+On March 2, 2023, between 9:00 AM and 10:30 AM EAT, our web application experienced an outage, which affected approximately 30% of our users. The outage was caused by a memory leak in the backend server, which caused the server to crash and restart repeatedly.
+Timeline:
+9:00 AM EAT: The issue was first detected when the monitoring system alerted the on-call engineer that the response time of the application had significantly increased.
+9:05 AM EAT: The engineer investigated the issue and discovered that the server was running out of memory.
+9:10 AM EAT: The engineer restarted the server to free up memory, but the issue persisted.
+9:15 AM EAT: The engineer escalated the issue to the backend development team, who started investigating the root cause.
+9:30 AM EAT: The team assumed that the issue was caused by a recent change in the code, which introduced a memory leak.
+9:45 AM EAT: The team started investigating the code changes that were made in the past few days to identify the source of the memory leak.
+10:00 AM EAT: After analyzing the code changes, the team found the root cause of the issue: a new feature that was introduced was creating a large number of objects in memory, which were not being properly released.
+10:15 AM EAT: The team deployed a patch to fix the memory leak and restarted the server.
+10:30 AM EAT: The application was fully operational again.
+Root cause and resolution: The root cause of the issue was a memory leak caused by a new feature that was introduced in the code. The feature was creating a large number of objects in memory that were not being properly released, leading to the server running out of memory and crashing. To fix the issue, the team identified the source of the memory leak and deployed a patch to properly release the objects in memory.
+Corrective and preventative measures: To prevent similar issues from happening in the future, the team has identified the following tasks:
+Add more monitoring to detect memory leaks and other performance issues.
+Implement stricter code review processes to catch potential memory leaks before they are deployed.
+Conduct a postmortem review to identify any other potential areas for improvement.
+In summary, the web stack outage that occurred on March 2, 2023, was caused by a memory leak in the backend server, which was caused by a new feature that was introduced in the code. The issue was resolved by identifying and patching the memory leak, and the team has identified several tasks to prevent similar issues from happening in the future.
+
